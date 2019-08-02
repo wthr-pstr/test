@@ -339,10 +339,10 @@ while 1 == 1:
                         print('20S')
                         call(["logger", "-t", "weather", "20S"])
 
-                    if pin_timer <= 899:
-                        #intro 15mins on
-                        time.sleep(900)
-                        pin_timer = pin_timer + 900
+                    if pin_timer <= 299:
+                        #less sleep while pins are on
+                        time.sleep(300)
+                        pin_timer = pin_timer + 300
                     else:
                         #Pulse - 3mins on
                         time.sleep(180)
@@ -359,8 +359,8 @@ while 1 == 1:
                         print('cold, so small pulse')
                     else:
                         clear_pins()
-                        time.sleep(60)
-                        pin_timer = pin_timer + 60
+                        time.sleep(120)
+                        pin_timer = pin_timer + 120
                         call(["logger", "-t", "weather", "just pulsed for 1min, outside temp above 12c"])
                     
                 # If there's problems turning on pins, we wait before re-trying.    
